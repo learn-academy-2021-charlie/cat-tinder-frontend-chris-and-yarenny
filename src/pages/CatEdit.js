@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-class Footer extends Component {
+class CatEdit extends Component {
     render() {
         return (
             <>
-                <h3>Coded by Chris and Yarenny</h3>
+                <h3>This is the edit page</h3>
             </>
         )
     }
 }
 
-export default Footer
+export default CatEdit

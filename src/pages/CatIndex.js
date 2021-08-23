@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-class Footer extends Component {
+class CatIndex extends Component {
     render() {
         return (
             <>
-                <h3>Coded by Chris and Yarenny</h3>
+                <h3>This is the index page</h3>
             </>
         )
     }
 }
 
-export default Footer
+export default CatIndex

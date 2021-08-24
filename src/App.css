@@ -3,20 +3,42 @@ h1 {
   color:#710B79;
 }
 
+/* .body{
+  min-height: 100vh;
+  padding-bottom: 50px;
+} */
+
 .logo{
   width: auto;
-  height: 200px;
+  height: 210px;
   text-align: center;
-  padding: 10px;
-  border: 3px solid #710B79;
-  background-color: #5BC7E1;
-  object-fit: fill;
-  
+  border: 5px solid #5BC7E1;
+  background-color:  #710B79;
+  /* border-radius: 8px; */
+}
+
+.not-found{
+  width: 100vw;
 }
 
 .pictures{
-  width: ;
   height: 200px;
   object-fit: fill;
+}
 
+.footer{
+  width: auto;
+  height: 50px;
+  text-align: center;
+  border: 5px solid #5BC7E1;
+  background-color:  #710B79;
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+  /* border-radius: 8px; */
+}
+
+.footer-content{
+  color: white;
 }

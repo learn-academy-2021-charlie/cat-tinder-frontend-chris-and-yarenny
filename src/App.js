@@ -28,7 +28,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Router className="body">
         <Header />
        
         <Switch>

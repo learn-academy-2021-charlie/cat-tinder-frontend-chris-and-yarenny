@@ -10,7 +10,6 @@ describe('Footer has an image', ()=> {
         footer = shallow(<Footer/>)
     })
     it('Footer renders content', ()=> {
-        // console.log("rendered ")
         const text = footer.find('h4')
         expect(text.length).toEqual(1)
     })

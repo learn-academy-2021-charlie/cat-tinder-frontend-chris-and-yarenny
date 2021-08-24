@@ -10,7 +10,6 @@ describe('Header has an image', ()=> {
         header = shallow(<Header/>)
     })
     it('Header renders content', ()=> {
-        // console.log("rendered ")
         const logoImage = header.find('img')
         expect(logoImage.length).toEqual(1)
     })

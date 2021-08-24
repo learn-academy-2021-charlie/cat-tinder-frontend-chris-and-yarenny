@@ -5,6 +5,7 @@ h1 {
 
 /* .body{
   min-height: 100vh;
+  padding-bottom: 50px;
 } */
 
 .logo{
@@ -14,6 +15,10 @@ h1 {
   border: 5px solid #5BC7E1;
   background-color:  #710B79;
   /* border-radius: 8px; */
+}
+
+.not-found{
+  width: 100vw;
 }
 
 .pictures{
@@ -36,5 +41,4 @@ h1 {
 
 .footer-content{
   color: white;
-  text-align: center;
 }

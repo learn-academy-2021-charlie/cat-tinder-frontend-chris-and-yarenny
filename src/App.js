@@ -8,6 +8,7 @@ import CatNew from './pages/CatNew'
 import CatShow from './pages/CatShow'
 import NotFound from './pages/NotFound'
 import mockCats from './mockCats.js'
+
 import {
   BrowserRouter as Router,
   Route,
@@ -34,9 +35,15 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/catedit" component={CatEdit} />
-          <Route path="/catindex" component={CatIndex} />
+          <Route path="/catindex" render={(props) => <CatIndex cats={this.state.cats} />} />
           <Route path="/catnew" component={CatNew} />
-          <Route path="/catshow" component={CatShow} />
+
+          <Route path="/catshow/:id" render={(props) =>{
+            let id = props.match.params.id
+            let cat = this.state.cats.find(cat => cat.id === +id)
+            return <CatShow cat={cat} />
+          }} />
+
           <Route component={NotFound} />
         </Switch>
         

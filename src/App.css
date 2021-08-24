@@ -3,18 +3,12 @@ h1 {
   color:#710B79;
 }
 
-/* .body{
-  min-height: 100vh;
-  padding-bottom: 50px;
-} */
-
 .logo{
   width: auto;
   height: 210px;
   text-align: center;
   border: 5px solid #5BC7E1;
   background-color:  #710B79;
-  /* border-radius: 8px; */
 }
 
 .not-found{
@@ -36,7 +30,6 @@ h1 {
   left:0;
   bottom:0;
   right:0;
-  /* border-radius: 8px; */
 }
 
 .footer-content{

@@ -7,7 +7,7 @@ import CatIndex from './pages/CatIndex'
 import CatNew from './pages/CatNew'
 import CatShow from './pages/CatShow'
 import NotFound from './pages/NotFound'
-import mockCats from './mockCats.js'
+import cats from './mockCats.js'
 
 import {
   BrowserRouter as Router,
@@ -22,7 +22,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      cats: mockCats
+      cats: cats
     }
   }
 
@@ -30,28 +30,30 @@ class App extends Component {
     console.log(newCat)
   }
 
-  editCat = (editCat) => {
-    console.log(editCat)
+  updateCat = (editCat, id) => {
+    console.log(editCat, id)
   }
+
+
 
   render() {
     return (
       <Router className="body">
         <Header />
-       
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/catedit/:id" render={(props) =>{
+          <Route path={"/catedit/:id"} render={(props) =>{
             let id = props.match.params.id
+            console.log(id)
             let cat = this.state.cats.find(cat => cat.id === +id)
-            return <CatEdit cat={cat} />
+            return <CatEdit updateCat={this.updateCat} cat={cat}/>
           }} />
           <Route path="/catindex" render={(props) => <CatIndex cats={this.state.cats} />} />
           <Route path="/catnew" render={(props) => <CatNew createCat={this.createCat}/>}/>
-          <Route path="/catshow/:id" render={(props) =>{
+          <Route path="/catshow/:id" render={(props) => {
             let id = props.match.params.id
             let cat = this.state.cats.find(cat => cat.id === +id)
-            return <CatShow cat={cat} />
+            return <CatShow updateCat={this.updateCat} cat={cat} />
           }} />
           <Route component={NotFound} />
         </Switch>

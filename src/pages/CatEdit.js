@@ -6,7 +6,11 @@ class CatEdit extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            form: { name: "", age: "", enjoys: "" },
+            form: {
+                name: this.props.cat ? this.props.cat.name : "",
+                age: this.props.cat ? this.props.cat.age : "",
+                enjoys: this.props.cat ? this.props.cat.enjoys : "",
+              },
             submitted: false
         }
     }
@@ -18,7 +22,8 @@ class CatEdit extends Component {
     }
 
     handleSubmit = () => {
-        this.props.editCat(this.state.form)
+        console.log(this.props.cat.id)
+        this.props.updateCat(this.state.form, this.props.cat.id)
         this.setState({submitted: true})
     }
 
@@ -35,6 +40,7 @@ class CatEdit extends Component {
                             value={this.state.form.name}
                         />
                     </FormGroup>
+                    <br />
                     <FormGroup>
                         <Label for="age">Age</Label>
                         <Input
@@ -44,6 +50,7 @@ class CatEdit extends Component {
                             value={this.state.form.age}
                         />
                     </FormGroup>
+                    <br />
                     <FormGroup>
                         <Label for="enjoys">Enjoys</Label>
                         <Input
@@ -53,9 +60,10 @@ class CatEdit extends Component {
                             value={this.state.form.enjoys}
                         />
                     </FormGroup>
-                        <Button onClick={this.handleSubmit}>Edit</Button>
+                        <Button name="submit" onClick={this.handleSubmit}>Submit changes
+                        </Button>
                 </Form>
-                {this.state.submitted && <Redirect to="/catindex" />}
+                {this.state.submitted && <Redirect to={`/catshow/${this.props.cat.id}`} />}
             </>
         )
     }

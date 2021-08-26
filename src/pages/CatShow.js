@@ -11,7 +11,6 @@ class CatShow extends Component {
             submitted: false
         }
     }
-
     handleChange = (e) => {
         let { form } = this.state
         form[e.target.name] = e.target.value

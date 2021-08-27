@@ -1,6 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Luckiest Guy', cursive;
+  color: #F88810;
+  background-color: F88810;
+}
+
 h1 {
   text-align: center;
   color:#710B79;
+}
+
+.page-titles{
+  text-align: center;
+  color: #5BC7E1;
+}
+
+.names {
+  
+  color: #F88810;
+}
+
+
+.page-body {
+  text-align: center;
+  margin: 3rem;
+  height: 110vh;
+  background-color: #5BC7E1;
+}
+
+.show-page-body{
+  text-align: center;
+  margin: 3rem;
+}
+
+.edit-page-body{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.btn.btn-secondary {
+  background-color: #F88810;
+  font-weight: bolder;
+}
+
+.btn.btn-secondary:hover {
+  color: #F88810;
+  background-color: white;
 }
 
 .logo{
@@ -15,6 +61,20 @@ h1 {
   width: 100vw;
 }
 
+.index-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  
+}
+.card.card-body {
+  width: 300px;
+  background-color: #710B79;
+  margin: 20px;
+  border: 5px solid #F88810;
+  
+}
+
 .pictures{
   height: 200px;
   object-fit: fill;
@@ -26,12 +86,13 @@ h1 {
   text-align: center;
   border: 5px solid #5BC7E1;
   background-color:  #710B79;
-  position:absolute;
+  position:fixed;
   left:0;
   bottom:0;
   right:0;
 }
 
 .footer-content{
-  color: white;
+  color: #F88810;
+  padding-top: 10px;
 }

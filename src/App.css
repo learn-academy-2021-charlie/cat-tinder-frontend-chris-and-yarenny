@@ -1,6 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Luckiest Guy', cursive;
+  color: #F88810;
+  background-color: F88810;
+}
+
 h1 {
   text-align: center;
   color:#710B79;
+}
+
+.names {
+  color: #F88810;
+}
+
+.page-body {
+  text-align: center;
+  margin: 3rem;
+  height: 110vh;
+  background-color: #5BC7E1;
 }
 
 .logo{
@@ -15,6 +34,19 @@ h1 {
   width: 100vw;
 }
 
+.index-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  
+}
+.card.card-body {
+  width: 300px;
+  background-color: #710B79;
+  margin: 20px;
+  
+}
+
 .pictures{
   height: 200px;
   object-fit: fill;
@@ -26,7 +58,7 @@ h1 {
   text-align: center;
   border: 5px solid #5BC7E1;
   background-color:  #710B79;
-  position:absolute;
+  position:fixed;
   left:0;
   bottom:0;
   right:0;

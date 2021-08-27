@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button } from 'reactstrap';
 // import { Redirect } from 'react-router-dom'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 class CatShow extends Component {
     constructor(props) {
@@ -19,7 +19,7 @@ class CatShow extends Component {
 
     handleSubmit = () => {
         this.props.updateCat(this.state.form)
-        this.setState({submitted: true})
+        this.setState({ submitted: true })
     }
 
     render() {
@@ -28,14 +28,19 @@ class CatShow extends Component {
                 <h3>Meow! My name is {this.props.cat.name}!</h3>
                 <p>I am {this.props.cat.age} years old.</p>
                 <p>I enjoy {this.props.cat.enjoys}.</p>
-                
+
                 {/* <Button onClick={this.handleSubmit}>Edit Cat</Button>
                 {this.state.submitted && <Redirect to={`/catedit/${this.props.cat.id}`} />} */}
 
-                <Button onClick={this.handleSubmit}>
-                    <NavLink to={`/catedit/${this.props.cat.id}`}> Edit Cat </NavLink>
-                </Button>
-                
+
+                <NavLink to={`/catedit/${this.props.cat.id}`}> <Button onClick={this.handleSubmit}>Edit Cat</Button> </NavLink>
+
+                <br />
+                <br />
+
+                <NavLink to="/catindex" ><Button name="submit" >Home</Button></NavLink>
+
+
             </>
         )
     }

@@ -7,7 +7,7 @@ import CatIndex from './pages/CatIndex'
 import CatNew from './pages/CatNew'
 import CatShow from './pages/CatShow'
 import NotFound from './pages/NotFound'
-import cats from './mockCats.js'
+
 
 import {
   BrowserRouter as Router,
@@ -19,19 +19,48 @@ import {
 
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
-      cats: cats
+      cats: []
     }
   }
 
+  componentDidMount() {
+    this.readCat()
+  }
+
+  readCat = () => {
+    fetch("http://localhost:3000/cats")
+      .then(response => response.json())
+      .then(catArray => this.setState({ cats: catArray }))
+      .catch(errors => console.log("cat read errors:", errors))
+  }
+
   createCat = (newCat) => {
-    console.log(newCat)
+    fetch("http://localhost:3000/cats", {
+      body: JSON.stringify(newCat),
+      headers: {
+        "content-type": "application/json"
+      },
+      method: "POST"
+    })
+      .then(response => response.json())
+      .then(payload => this.readCat())
+      .catch(errors => console.log("cat create errors:", errors))
   }
 
   updateCat = (editCat, id) => {
-    console.log(editCat, id)
+    fetch(`http://localhost:3000/cats/${id}`, {
+      body: JSON.stringify(editCat),
+      headers: {
+        "content-type": "application/json"
+      },
+      method: "PATCH"
+    })
+      .then(response => response.json())
+      .then(payload => this.readCat())
+      .catch(errors => console.log("cat update errors:", errors))
   }
 
 
@@ -42,14 +71,14 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path={"/catedit/:id"} render={(props) =>{
+          <Route path={"/catedit/:id"} render={(props) => {
             let id = props.match.params.id
             console.log(id)
             let cat = this.state.cats.find(cat => cat.id === +id)
-            return <CatEdit updateCat={this.updateCat} cat={cat}/>
+            return <CatEdit updateCat={this.updateCat} cat={cat} />
           }} />
           <Route path="/catindex" render={(props) => <CatIndex cats={this.state.cats} />} />
-          <Route path="/catnew" render={(props) => <CatNew createCat={this.createCat}/>}/>
+          <Route path="/catnew" render={(props) => <CatNew createCat={this.createCat} />} />
           <Route path="/catshow/:id" render={(props) => {
             let id = props.match.params.id
             let cat = this.state.cats.find(cat => cat.id === +id)

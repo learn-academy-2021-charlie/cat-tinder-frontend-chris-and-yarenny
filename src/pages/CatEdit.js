@@ -10,7 +10,7 @@ class CatEdit extends Component {
                 name: this.props.cat ? this.props.cat.name : "",
                 age: this.props.cat ? this.props.cat.age : "",
                 enjoys: this.props.cat ? this.props.cat.enjoys : "",
-              },
+            },
             submitted: false
         }
     }
@@ -24,47 +24,52 @@ class CatEdit extends Component {
     handleSubmit = () => {
         console.log(this.props.cat.id)
         this.props.updateCat(this.state.form, this.props.cat.id)
-        this.setState({submitted: true})
+        this.setState({ submitted: true })
     }
 
     render() {
         return (
             <>
-                <h3>This is the edit page</h3>
-                <Form>
-                    <FormGroup>
-                        <Label for="name">Name</Label>
-                        <Input
-                            type="text" name="name"
-                            onChange={this.handleChange}
-                            value={this.state.form.name}
-                        />
-                    </FormGroup>
+                <div className="edit-page-body">
                     <br />
-                    <FormGroup>
-                        <Label for="age">Age</Label>
-                        <Input
-                            type="text"
-                            name="age"
-                            onChange={this.handleChange}
-                            value={this.state.form.age}
-                        />
-                    </FormGroup>
-                    <br />
-                    <FormGroup>
-                        <Label for="enjoys">Enjoys</Label>
-                        <Input
-                            type="text"
-                            name="enjoys"
-                            onChange={this.handleChange}
-                            value={this.state.form.enjoys}
-                        />
-                    </FormGroup>
+                    <h3 className="page-titles">Edit your cat</h3>
+                    <Form>
+                        <FormGroup>
+                            <Label for="name">Name</Label>
+                            <Input
+                                type="text" name="name"
+                                onChange={this.handleChange}
+                                value={this.state.form.name}
+                            />
+                        </FormGroup>
+                        <br />
+                        <FormGroup>
+                            <Label for="age">Age</Label>
+                            <Input
+                                type="text"
+                                name="age"
+                                onChange={this.handleChange}
+                                value={this.state.form.age}
+                            />
+                        </FormGroup>
+                        <br />
+                        <FormGroup>
+                            <Label for="enjoys">Enjoys</Label>
+                            <Input
+                                type="text"
+                                name="enjoys"
+                                onChange={this.handleChange}
+                                value={this.state.form.enjoys}
+                            />
+                        </FormGroup>
+                        <br />
                         <Button name="submit" onClick={this.handleSubmit}>Submit changes
                         </Button>
-                </Form>
-                {this.state.submitted && <Redirect to={`/catshow/${this.props.cat.id}`} />}
+                    </Form>
+                    {this.state.submitted && <Redirect to={`/catshow/${this.props.cat.id}`} />}
+                </div>
             </>
+
         )
     }
 }

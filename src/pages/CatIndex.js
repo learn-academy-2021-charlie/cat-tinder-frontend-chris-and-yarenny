@@ -7,18 +7,21 @@ class CatIndex extends Component {
     render() {
         return (
             <div className="page-body">
-                <h3>Meet The Cats</h3>
+                <br/>
+                <h1>Meet The Cats!😸</h1>
                 <div className="index-cards">
-
                     {this.props.cats && this.props.cats.map(cat => {
                         return (
                             <Row key={cat.id}>
                                 <Col sm="6">
                                     <Card body key={cat.id}>
                                         <CardTitle>
-                                            <p key={cat.id}>
+                                            <h4 key={cat.id}>
                                                 <NavLink className="names" to={`/catshow/${cat.id}`}>{cat.name}</NavLink>
-                                            </p>
+                                                <br/>
+                                                <br/>
+                                                <h1>🐈</h1>
+                                            </h4>
                                         </CardTitle>
                                     </Card>
                                 </Col>
@@ -28,7 +31,9 @@ class CatIndex extends Component {
                     })}
 
                 </div>
-                <NavLink to="/catnew" ><Button name="submit" >Add cat</Button></NavLink>
+                <NavLink to="/catnew" >
+                    <Button className="button" name="submit" >Add cat</Button>
+                </NavLink>
 
             </div>
         )
